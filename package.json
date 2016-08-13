@@ -1,0 +1,24 @@
+{
+  "name": "react-fb-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kekuso/react-fb-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kekuso/react-fb-demo/issues"
+  },
+  "homepage": "https://github.com/kekuso/react-fb-demo#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
