@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -30,6 +32,27 @@ app.get('/api/comments', function(req, res) {
   });
 });
 
+app.post('/api/comments', function (req, res) {
+  fs.readFile(COMMENTS_FILE, function (err, data) {
+    if(err) {
+      console.error(err);
+      process.exit(1);
+    }
+    let comments = JSON.parse(data);
+    let newComment = {
+      author: req.body.author,
+      text: req.body.text
+    };
+    comments.push(newComment);
+    fs.writeFile(COMMENTS_FILE, JSON.stringify(comments, null, 4), function (err) {
+      if(err) {
+        console.error(err);
+        process.exit(1);
+      }
+      res.json(comments);
+    });
+  });
+});
 var server = app.listen(app.get('port'), function () {
   console.log("Server listening on port %s", server.address().port);
 });
